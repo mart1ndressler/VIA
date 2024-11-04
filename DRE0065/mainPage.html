@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN PAGE | DRE0065</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="left-section">
+                <span id="current-time">Čas: 00:00:00</span>
+                <span id="login-duration">Doba přihlášení: 00:00:00</span>
+                <span>|</span>
+                <a href="#">Nápověda</a>
+                <a href="#">Pobočky</a>
+                <a href="#">Zákaznická podpora</a>
+                <a href="#">Vyloučit se z hraní</a>
+            </div>
+            <div class="right-section">
+                <a href="#">Vložit peníze</a>
+                <a href="#">Vybrat peníze</a>
+                <a href="#" id="logoutLink" onclick="logoutUser()">Odhlásit se</a>
+            </div>
+        </div>
+
+        <div class="top-bar-inner2">
+            <div>
+                <div class="logo">
+                    <a href="mainPage.html">
+                        <img src="images/logo.png" alt="Logo">
+                        Tipsport
+                    </a>
+                </div>
+                <div class="main-nav">
+                    <a href="mainPage.html">SPORTY</a>
+                    <a href="#">VEGAS</a>
+                    <a href="#">FANTASY</a>
+                    
+                    <div class="dropdown-container">
+                        <a href="#" class="dropdown-toggle">DALŠÍ</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">LOTERIE MAXA</a>
+                            <div class="dropdown-item dropdown-container">
+                                <a href="#" class="dropdown-toggle">KRYPTO</a>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Bitcoin BTC</a>
+                                    <a href="#" class="dropdown-item">Ethereum ETH</a>
+                                    <a href="#" class="dropdown-item">Solana SOL</a>
+                                    <a href="#" class="dropdown-item">XRP</a>
+                                    <a href="#" class="dropdown-item">Cardano ADA</a>
+                                    <a href="#" class="dropdown-item">Litecoin LTC</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                                                                      
+                </div>
+            </div>
+
+            <div id="authButtons" class="icon-container">
+                <button onclick="openRegisterModal()" class="auth-button register-button">REGISTRACE</button>
+                <button onclick="openLoginModal()" class="auth-button login-button">PŘIHLÁSIT</button>
+            </div>            
+
+            <div id="userInfo" class="icon-container">
+                <a class="icon-link" href="myTickets.html"><i class="fas fa-check-square"></i></a>
+                <a class="icon-link" href="#"><i class="fas fa-bell"></i></a>
+                <a class="icon-link" href="#"><i class="fas fa-user-friends"></i></a>
+                <a class="icon-link" href="#"><i class="fas fa-comments"></i></a>
+                <span class="icon-separator">|</span>
+                <a class="icon-link" href="infoProfile.html"><i class="fas fa-user-circle"></i></a>
+                <div class="user-info">
+                    <span id="usernameDisplay"></span>
+                    <i class="fas fa-exclamation-circle warning-icon"></i>
+                    <span>0 Kč</span>
+                    <a class="icon-link" href="#"><i class="fas fa-sync-alt"></i></a>
+                    <a class="icon-link" href="#"><i class="fas fa-eye-slash"></i></a>
+                 </div>
+            </div>       
+        </div>
+    </header>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">PŘIHLAŠENÍ</h2>
+            <form onsubmit="loginUser(event)">
+                <label for="loginUsername" class="modal-label">Uživatelské jméno</label>
+                <input type="text" id="loginUsername" name="username" required class="modal-input">
+                <label for="loginPassword" class="modal-label">Heslo</label>
+                <input type="password" id="loginPassword" name="password" required class="modal-input">
+                <button type="submit" class="modal-button">PŘIHLÁSIT</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="registerModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">REGISTRACE</h2>
+            <form onsubmit="registerUser(event)">
+                <label for="registerUsername" class="modal-label">Uživatelské jméno</label>
+                <input type="text" id="registerUsername" name="registerUsername" required class="modal-input">
+                <label for="registerPassword" class="modal-label">Heslo</label>
+                <input type="password" id="registerPassword" name="registerPassword" required class="modal-input">
+                <button type="submit" class="modal-button">REGISTROVAT</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="main-nav-container">
+        <div class="main-nav-inner">
+            <a href="mainPage.html">KURZY</a>
+            <a href="#">LIVE</a>
+            <a href="#">VÝSLEDKY</a>
+            <a href="#">FÓRUM</a>
+            <a href="#">TIKET ARÉNA</a>
+            <a href="#">ANALÝZY</a>
+            <a href="#">BLOGY</a>
+            <a href="#">SOUTĚŽE</a>
+            <a href="#">BONUSY</a>
+            <a href="#">TV</a>
+            <a href="#">DALŠÍ <i class="fas fa-caret-down"></i></a>
+        </div>
+    </div>
+
+    <main class="main-layout">
+        <aside class="side-menu">
+            <div class="header">NABÍDKA</div>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i><input type="text" class="search-input">
+            </div>
+            <div class="button-container">
+                <button class="button">DNES</button>
+                <button class="button">ZÍTRA</button>
+            </div>
+
+            <div class="header">OBLÍBENÉ SPORTY</div>
+            <ul class="sport-list">
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-gamepad"></i> Esporty</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="footballMatches.html" class="sport_href">
+                        <span><i class="fas fa-futbol"></i> Fotbal</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-hockey-puck"></i> Lední hokej</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-fist-raised"></i> Bojové sporty</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fa-solid fa-circle"></i> Tenis</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+            </ul>
+
+            <div class="header">OSTATNÍ SPORTY (A-Z)</div>
+            <ul class="sport-list">
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-football-ball"></i> Americký fotbal</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-baseball-ball"></i> Baseball</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-basketball-ball"></i> Basketbal</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-hand-rock"></i> Box</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-horse-head"></i> Dostihy</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-grip-horizontal"></i> Florbal</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-running"></i> Futsal</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-hand-paper"></i> Házená</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-users"></i> Kriket</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-flag-checkered"></i> Motorsport</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-people-arrows"></i> Rugby</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-money-bill-wave"></i> Společenské sázky</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-table-tennis"></i> Stolní tenis</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-chess"></i> Šachy</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-bullseye"></i> Šipky</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-water"></i> Vodní pólo</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="sport-item">
+                    <a href="#" class="sport_href">
+                        <span><i class="fas fa-volleyball-ball"></i> Volejbal</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+            </ul>            
+        </aside>
+
+        <section class="main-content">
+            <div class="section blog-section">
+                <div class="blog-header">BLOGY</div>
+                <div class="my-carousel-container">
+                    <button onclick="previousSlide()" class="my-carousel-arrow my-left-arrow">&#10094;</button>
+
+                    <div id="carousel" class="my-carousel-content">
+                        <div class="my-carousel-item">
+                            <img src="images/blog_photo.png" class="blog-image" onclick="openImageModal(this)">
+                            <div class="blog-text">
+                                <h4 class="blog-title">Volby v USA: Harrisová, nebo Trump? Kdy vyhodnotíme sázky?</h4>
+                                <p class="blog-description">V úterý 5. listopadu 2024 proběhnou v USA prezidentské volby. Událost bude s napětím sledovat celý svět. Jak dopadne velká americká noc? Vsaďte si.</p>
+                            </div>
+                        </div>
+                        <div class="my-carousel-item">
+                            <img src="images/blog_photo1.png" class="blog-image" onclick="openImageModal(this)">
+                            <div class="blog-text">
+                                <h4 class="blog-title">United už bez Ten Haga proti Chelsea! Prodlouží sérii?</h4>
+                                <p class="blog-description">Už bez Erika ten Haga na lavičce se Manchester United postaví Chelsea. Domácí celek povede na Old Trafford podruhé v řadě coby provizorní kouč Ruud van Nistelrooy.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="my-carousel-item">
+                            <img src="images/blog_photo2.png" class="blog-image" onclick="openImageModal(this)">
+                            <div class="blog-text">
+                                <h4 class="blog-title">Liberec ve velké krizi! Pešán ven?</h4>
+                                <p class="blog-description">V loňské sezóně nesmírně produktivní mužstvo, které dlouhou dobu atakovalo umístění v TOP4 po základní části a sezónu zakončilo neúspěšným čtvrtfinále proti Spartě, se v sezóně letošní až hrozivě trápí.</p>
+                            </div>
+                        </div>
+                        <div class="my-carousel-item">
+                            <img src="images/blog_photo3.png" class="blog-image" onclick="openImageModal(this)">
+                            <div class="blog-text">
+                                <h4 class="blog-title">Tipcast: Vrcholy tenisové sezony s paulrockseekem</h4>
+                                <p class="blog-description">Ženská tenisová sezona vyvrcholí Turnajem mistryň v Rijádu, muži se představí v Turnaji mistrů o týden později v Turíně. Jací jsou favorité a co od obou závěrečných podniků můžeme čekat?</p>
+                            </div>
+                        </div>
+                        <div class="my-carousel-item">
+                            <img src="images/blog_photo4.png" class="blog-image" onclick="openImageModal(this)">
+                            <div class="blog-text">
+                                <h4 class="blog-title">Chance Liga: Zabere Sparta? Co rozjetá Slavia?</h4>
+                                <p class="blog-description">Zvýší Slavia náskok na čele Chance Ligy nebo se ho duu pronásledovatelů ve složení Plzeň – Sparta podaří snížit? I to je jedna z otázek nadcházejícího kola elitní české fotbalové ligy.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <button onclick="nextSlide()" class="my-carousel-arrow my-right-arrow">&#10095;</button>
+                </div>
+            </div>
+
+            <div id="imageModal" class="my-modal-overlay">
+                <img id="modalImage" class="my-modal-image">
+                <button onclick="closeImageModal()" class="my-modal-close-button">&times;</button>
+            </div>
+                                                     
+        
+            <div class="section special-offer">
+                <div class="special-offer-header">SPECIÁLNÍ NABÍDKA</div>
+                <div class="special-offer-container">
+                    <div class="offer-item">
+                        
+                        <h4 class="offer-title"><i class="fas fa-hockey-puck"></i>Detroit - Edmonton</h4>
+                        <p class="offer-date">Zítra | 02:00 | NHL</p>
+                        <p class="offer-description">McDavid Connor dá gól a výsledek zápasu bude</p>
+                        <div class="odds-box">
+                            <span class="team-name">Edmonton</span>
+                            <span class="odds-value">3.12</span>
+                        </div>
+                    </div>
+                    <div class="offer-item">
+                        <h4 class="offer-title"><i class="fas fa-hockey-puck"></i>Philadelphia - Montreal</h4>
+                        <p class="offer-date">Zítra | 02:30 | NHL</p>
+                        <p class="offer-description">Góly Konecny Travis včetně prodloužení</p>
+                        <div class="odds-box">
+                            <span class="team-name">Dá gól</span>
+                            <span class="odds-value">3.14</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">TOP ZÁPASY</div>
+                <table class="top-matches-table">
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-futbol"></i>
+                                    <div>
+                                        <div class="teams">Plzeň - Sparta Praha</div>
+                                        <div class="match-league">Dnes | 18:00 | Chance Liga</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+40</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">2.23</span>
+                                <span class="odds-block">1.64</span>
+                                <span class="odds-block">4.40</span>
+                                <span class="odds-block">1.15</span>
+                                <span class="odds-block">1.28</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-futbol"></i>
+                                    <div>
+                                        <div class="teams">Betis Sevilla - Atlético Madrid</div>
+                                        <div class="match-league">Dnes | 19:00 | La Liga</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+30</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">2.80</span>
+                                <span class="odds-block">1.90</span>
+                                <span class="odds-block">3.80</span>
+                                <span class="odds-block">1.34</span>
+                                <span class="odds-block">1.80</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-futbol"></i>
+                                    <div>
+                                        <div class="teams">Marseille - Paris SG</div>
+                                        <div class="match-league">Dnes | 19:00 | Ligue 1</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+68</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">4.12</span>
+                                <span class="odds-block">2.05</span>
+                                <span class="odds-block">4.13</span>
+                                <span class="odds-block">1.27</span>
+                                <span class="odds-block">1.84</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-futbol"></i>
+                                    <div>
+                                        <div class="teams">Real Sociedad - Osasuna</div>
+                                        <div class="match-league">Dnes | 21:00 | La Liga</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+73</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">1.64</span>
+                                <span class="odds-block">1.15</span>
+                                <span class="odds-block">3.87</span>
+                                <span class="odds-block">2.34</span>
+                                <span class="odds-block">6.05</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-futbol"></i>
+                                    <div>
+                                        <div class="teams">Fiorentina - AS Roma</div>
+                                        <div class="match-league">Dnes | 21:00 | Seria A</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+32</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">2.55</span>
+                                <span class="odds-block">1.42</span>
+                                <span class="odds-block">3.26</span>
+                                <span class="odds-block">1.56</span>
+                                <span class="odds-block">3.04</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-hockey-puck"></i>
+                                    <div>
+                                        <div class="teams">New Jersey Devils - Anaheim Ducks</div>
+                                        <div class="match-league">Zítra | 01:00 | NHL</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+47</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">1.51</span>
+                                <span class="odds-block">1.17</span>
+                                <span class="odds-block">5.00</span>
+                                <span class="odds-block">2.65</span>
+                                <span class="odds-block">5.48</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="match-row">
+                        <td colspan="6" class="match-cell">
+                            <div class="match-info">
+                                <div class="match-details">
+                                    <i class="fa-regular fa-star icon-star"></i>
+                                    <i class="fas fa-hockey-puck"></i>
+                                    <div>
+                                        <div class="teams">Colorado Avalanche - Ottawa Senators</div>
+                                        <div class="match-league">Zítra | 01:30 | NHL</div>
+                                    </div>
+                                </div>
+                                <div class="plus">
+                                    <i class="fas fa-chart-line"></i>
+                                    <i class="fas fa-tv"></i>
+                                    <span>+51</span>
+                                </div>
+                            </div>
+                            <div class="odds-container">
+                                <span class="odds-block">1.94</span>
+                                <span class="odds-block">1.35</span>
+                                <span class="odds-block">4.35</span>
+                                <span class="odds-block">1.91</span>
+                                <span class="odds-block">3.33</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="button-container">
+                    <button class="action-button">ZOBRAZIT DALŠÍ</button>
+                    <button class="action-button">NEJSAZENĚJŠÍ NA TIKET</button>
+                </div>
+            </div>
+        </section>
+        
+
+        <aside class="right-panel-style">
+            <div class="ticket-widget-style">
+                <div class="ticket-header-style">
+                    <span>TIKET</span>
+                    <div class="ticket-tabs-style">
+                        <span class="tab-active-style">1</span>
+                        <span class="tab-inactive-style">2</span>
+                        <span class="tab-inactive-style">3</span>
+                    </div>
+                </div>
+                <div class="ticket-content-style">
+                    <i class="fa fa-info-circle info-icon-style"></i>
+                    <span>Tiket je prázdný.</span>
+                </div>
+            </div>
+        
+            <div class="ticket-arena-widget-style">
+                <div class="ticket-arena-header-style">
+                    TIKET ARÉNA
+                </div>
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">digom</span><br>
+                        <span class="entry-inspirations-style">2 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">12 345 Kč</span><br>
+                            Kurz: <span class="entry-name-style">1.56</span><br>
+                            Výhra: <span class="entry-name-style">19 258 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+        
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">hora08</span><br>
+                        <span class="entry-inspirations-style">28 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">10 000 Kč</span><br>
+                            Kurz: <span class="entry-name-style">1.36</span><br>
+                            Výhra: <span class="entry-name-style">13 600 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+        
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">james90</span><br>
+                        <span class="entry-inspirations-style">0 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">7 500 Kč</span><br>
+                            Kurz: <span class="entry-name-style">1.56</span><br>
+                            Výhra: <span class="entry-name-style">11 700 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+        
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">Jar14</span><br>
+                        <span class="entry-inspirations-style">34 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">5 303 Kč</span><br>
+                            Kurz: <span class="entry-name-style">3.0</span><br>
+                            Výhra: <span class="entry-name-style">15 908 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <footer class="footer-style">
+        <p class="footer-text">Účast na hazardní hře může být škodlivá | 18+ | Copyright © 2024 Tipsport.net a.s.<br>
+            Upozorňujeme na využití a stav sebeomezujících opatření. Jedná se o školský projekt</a>!
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

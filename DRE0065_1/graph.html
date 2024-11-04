@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UFC Fighter Stats Visualization</title>
+  <link rel="icon" href="images/logo.png">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">UFC History Tracker</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="mainPage.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="database.html">Database</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="graph.html">Graph</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container graph-container mt-4">
+    <h1 class="title">UFC Fighter Stats Visualization</h1>
+
+    <div class="form-group data-selection">
+      <label for="dataSelect">Select Data to Display:</label>
+      <select id="dataSelect" class="form-control">
+        <option value="wins">Top 10 by Wins</option>
+        <option value="losses">Top 10 by Losses</option>
+        <option value="significant_strikes_landed_per_minute">Top 10 by Strikes Landed/Minute</option>
+        <option value="takedown_accuracy">Top 10 by Takedown Accuracy</option>
+        <option value="average_submissions_attempted_per_15_minutes">Top 10 by Submissions/15 Minutes</option>
+      </select>
+    </div>
+
+    <div class="form-group weight-category-selection">
+      <label for="weightSelect">Select Weight Category:</label>
+      <select id="weightSelect" class="form-control">
+        <option value="all">All Weight Categories</option>
+        <option value="FLYWEIGHT">Flyweight</option>
+        <option value="BANTAMWEIGHT">Bantamweight</option>
+        <option value="FEATHERWEIGHT">Featherweight</option>
+        <option value="LIGHTWEIGHT">Lightweight</option>
+        <option value="WELTERWEIGHT">Welterweight</option>
+        <option value="MIDDLEWEIGHT">Middleweight</option>
+        <option value="LIGHT HEAVYWEIGHT">Light Heavyweight</option>
+        <option value="HEAVYWEIGHT">Heavyweight</option>
+      </select>
+    </div>
+    
+    <canvas id="winChart" class="chart-canvas" width="400" height="200"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
