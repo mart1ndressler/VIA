@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY TICKETS | DRE0065</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="left-section">
+                <span id="current-time">Čas: 00:00:00</span>
+                <span id="login-duration">Doba přihlášení: 00:00:00</span>
+                <span>|</span>
+                <a href="#">Nápověda</a>
+                <a href="#">Pobočky</a>
+                <a href="#">Zákaznická podpora</a>
+                <a href="#">Vyloučit se z hraní</a>
+            </div>
+            <div class="right-section">
+                <a href="#">Vložit peníze</a>
+                <a href="#">Vybrat peníze</a>
+            </div>
+        </div>
+
+        <div class="top-bar-inner2">
+            <div>
+                <div class="logo">
+                    <a href="mainPage.html">
+                        <img src="images/logo.png" alt="Logo">
+                        Tipsport
+                    </a>
+                </div>
+                <div class="main-nav">
+                    <a href="mainPage.html">SPORTY</a>
+                    <a href="#">VEGAS</a>
+                    <a href="#">FANTASY</a>
+                    
+                    <div class="dropdown-container">
+                        <a href="#" class="dropdown-toggle">DALŠÍ</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">LOTERIE MAXA</a>
+                            <a href="#" class="dropdown-item">KRYPTO</a>
+                        </div>
+                    </div>                                                                                       
+                </div>
+            </div>
+
+            <div class="icon-container">
+                <a class="icon-link" href="myTickets.html"><i class="fas fa-check-square"></i></a>
+                <a class="icon-link" href="#"><i class="fas fa-bell"></i></a>
+                <a class="icon-link" href="#"><i class="fas fa-user-friends"></i></a>
+                <a class="icon-link" href="#"><i class="fas fa-comments"></i></a>
+                <span class="icon-separator">|</span>
+                <a class="icon-link" href="infoProfile.html"><i class="fas fa-user-circle"></i></a>
+                <div class="user-info">
+                    <span id="usernameDisplay"></span>
+                    <i class="fas fa-exclamation-circle warning-icon"></i>
+                    <span>0 Kč</span>
+                    <a class="icon-link" href="#"><i class="fas fa-sync-alt"></i></a>
+                    <a class="icon-link" href="#"><i class="fas fa-eye-slash"></i></a>
+                </div>
+            </div>          
+        </div>
+    </header>
+
+    <div class="main-nav-container">
+        <div class="main-nav-inner">
+            <a href="mainPage.html">KURZY</a>
+            <a href="#">LIVE</a>
+            <a href="#">VÝSLEDKY</a>
+            <a href="#">FÓRUM</a>
+            <a href="#">TIKET ARÉNA</a>
+            <a href="#">ANALÝZY</a>
+            <a href="#">BLOGY</a>
+            <a href="#">SOUTĚŽE</a>
+            <a href="#">BONUSY</a>
+            <a href="#">TV</a>
+            <a href="#">DALŠÍ <i class="fas fa-caret-down"></i></a>
+        </div>
+    </div>
+
+    <main class="main-layout">
+        <aside class="side-menu">
+            <div class="header">MŮJ ÚČET</div>
+            <ul class="ticket_info-list">
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>VLOŽIT PENÍZE</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>VYBRAT PENÍZE</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>TIKETY</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>SÁZKY</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>HISTORIE TRANSAKCÍ</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>BILANCE SÁZENÍ</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>SOUKROMÉ ZPRÁVY</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>OBLÍBENÉ</span>
+                    </a>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>SEBEOMEZUJÍCÍ OPATŘENÍ</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <li class="ticket_info_item">
+                    <a href="#" class="ticket_info_href">
+                        <span>NASTAVENÍ</span>
+                    </a>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="main-content">
+            <div class="section_ticket">
+                <div class="tickets_header">MOJE TIKETY</div>
+                <div class="ticket-container">
+                    <div class="ticket-red-line"></div>
+                    
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">26. 10. (so) | 16:40:42</span>
+                            <div class="ticket-red">
+                                <i class="fas fa-times ticket-close-icon"></i>
+                            </div>
+                        </div>
+                
+                        <h4 class="ticket-title">Ankalaev Magomed - Rakic Aleksandar</h4>
+                        <p class="ticket-subtitle">a 3 další příležitosti</p>
+                
+                        <hr class="ticket-separator">
+                
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">100 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">0 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">4.93</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-container">
+                    <div class="ticket-red-line"></div>
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">14. 4. (ne) | 2:57:29</span>
+                            <div class="ticket-red">
+                                <i class="fas fa-times ticket-close-icon"></i>
+                            </div>
+                        </div>
+                        <h4 class="ticket-title">Kattar Calvin - Sterling Aljamain</h4>
+                        <p class="ticket-subtitle">Vítěz a způsob výhry: Sterling Aljamain vyhraje na submission</p>
+                        <hr class="ticket-separator">
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">100 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">0 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">5.20</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-container">
+                    <div class="ticket-red-line"></div>
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">14. 4. (ne) | 2:25:19</span>
+                            <div class="ticket-red">
+                                <i class="fas fa-times ticket-close-icon"></i>
+                            </div>
+                        </div>
+                        <h4 class="ticket-title">Holm Holly - Harrison Kayla</h4>
+                        <p class="ticket-subtitle">Výsledek zápasu: Holm Holly</p>
+                        <hr class="ticket-separator">
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">87 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">0 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">4.40</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-container">
+                    <div class="ticket-green-line"></div>
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">14. 4. (ne) | 1:18:01</span>
+                            <div class="ticket-green">
+                                <i class="fas fa-check ticket-check-icon"></i>
+                            </div>
+                        </div>
+                        <h4 class="ticket-title">Andrade Jessica - Rodriguez Marina</h4>
+                        <p class="ticket-subtitle">Výsledek zápasu: Andrade Jessica</p>
+                        <hr class="ticket-separator">
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">152 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">237,12 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">1.56</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-container">
+                    <div class="ticket-green-line"></div>
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">14. 4. (ne) | 0:46:50</span>
+                            <div class="ticket-green">
+                                <i class="fas fa-check ticket-check-icon"></i>
+                            </div>
+                        </div>
+                        <h4 class="ticket-title">Green Bobby - Miller Jim</h4>
+                        <p class="ticket-subtitle">Výsledek zápasu: Green Bobby</p>
+                        <hr class="ticket-separator">
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">100 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">152 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">1.52</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-container">
+                    <div class="ticket-red-line"></div>
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">13. 4. (so) | 23:56:41</span>
+                            <div class="ticket-red">
+                                <i class="fas fa-times ticket-close-icon"></i>
+                            </div>
+                        </div>
+                        <h4 class="ticket-title">Figueiredo Deiveson - Garbrandt Cody</h4>
+                        <p class="ticket-subtitle">Výsledek zápasu: Garbrandt Cody</p>
+                        <hr class="ticket-separator">
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">25 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">0 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">4.31</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-container">
+                    <div class="ticket-green-line"></div>
+                    <div class="ticket-content">
+                        <div class="ticket-header">
+                            <span class="ticket-date">13. 4. (so) | 23:53:33</span>
+                            <div class="ticket-green">
+                                <i class="fas fa-check ticket-check-icon"></i>
+                            </div>
+                        </div>
+                        <h4 class="ticket-title">Pereira Alex - Hill Jamahal</h4>
+                        <p class="ticket-subtitle">a 4 další příležitosti</p>
+                        <hr class="ticket-separator">
+                        <div class="ticket-details">
+                            <span class="ticket-detail">Vklad: <span class="ticket-bold">240 Kč</span></span>
+                            <span class="ticket-detail">Skutečná výhra: <span class="ticket-bold">1 756,80 Kč</span></span>
+                            <span class="ticket-detail">Celkový kurz: <span class="ticket-bold">12.85</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <aside class="right-panel-style">
+            <div class="ticket-widget-style">
+                <div class="ticket-header-style">
+                    <span>TIKET</span>
+                    <div class="ticket-tabs-style">
+                        <span class="tab-active-style">1</span>
+                        <span class="tab-inactive-style">2</span>
+                        <span class="tab-inactive-style">3</span>
+                    </div>
+                </div>
+                <div class="ticket-content-style">
+                    <i class="fa fa-info-circle info-icon-style"></i>
+                    <span>Tiket je prázdný.</span>
+                </div>
+            </div>
+        
+            <div class="ticket-arena-widget-style">
+                <div class="ticket-arena-header-style">
+                    TIKET ARÉNA
+                </div>
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">digom</span><br>
+                        <span class="entry-inspirations-style">2 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">12 345 Kč</span><br>
+                            Kurz: <span class="entry-name-style">1.56</span><br>
+                            Výhra: <span class="entry-name-style">19 258 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+        
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">hora08</span><br>
+                        <span class="entry-inspirations-style">28 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">10 000 Kč</span><br>
+                            Kurz: <span class="entry-name-style">1.36</span><br>
+                            Výhra: <span class="entry-name-style">13 600 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+        
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">james90</span><br>
+                        <span class="entry-inspirations-style">0 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">7 500 Kč</span><br>
+                            Kurz: <span class="entry-name-style">1.56</span><br>
+                            Výhra: <span class="entry-name-style">11 700 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+        
+                <div class="ticket-arena-entry-style">
+                    <i class="fa fa-user-circle user-icon-style"></i>
+                    <div class="entry-details-style">
+                        <span class="entry-name-style">Jar14</span><br>
+                        <span class="entry-inspirations-style">34 inspirací</span>
+                        <p class="entry-stats-style">
+                            Vklad: <span class="entry-name-style">5 303 Kč</span><br>
+                            Kurz: <span class="entry-name-style">3.0</span><br>
+                            Výhra: <span class="entry-name-style">15 908 Kč</span>
+                        </p>
+                    </div>
+                    <i class="fa fa-question-circle question-icon-style"></i>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <footer class="footer-style">
+        <p class="footer-text">Účast na hazardní hře může být škodlivá | 18+ | Copyright © 2024 Tipsport.net a.s.<br>
+            Upozorňujeme na využití a stav sebeomezujících opatření. Jedná se o školský projekt</a>!
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
