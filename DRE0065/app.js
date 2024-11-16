@@ -1,4 +1,4 @@
-function updateCurrentTime() 
+function updateCurrentTime()
 {
     const now = new Date();
     document.getElementById('current-time').textContent = `Čas: ${now.toLocaleTimeString('cs-CZ', { hour12: false })}`;

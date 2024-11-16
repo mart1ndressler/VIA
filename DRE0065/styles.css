@@ -993,34 +993,94 @@ html, body{
     width: 500px;
     height: auto;
 }
-@media (max-width: 768px){
+@media(max-width: 480px){
     .main-layout{
         flex-direction: column;
-        align-items: center;
     }
-    .side-menu, .right-panel-style{
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .main-content{
+    .main-content, .blog-section, .right-panel-style, .top-bar, .section, .section_profile, .section_ticket, .section-matches, .side-menu, .main-layout, .main-content-matches, .main-content-profile, .top-bar-inner, .left-section, .top-bar-inner2, .user-info{
         width: 100%;
     }
-    .lightbox-modal-image{
-        width: 90%;
-    }
-}
-@media (max-width: 480px){
     .top-bar{
-        font-size: 10px;
         padding: 5px;
     }
+    .main-nav-inner{
+        flex-direction: row;
+    }
+    .logo a img{
+        width: 10px;
+    }
+    .icon-container button{
+        font-size: 8px;
+        width: 50px;
+    }
+    .blog-description, .blog-title{
+        font-size: 13px;
+        margin-right: 10px;
+    }
+    .blog-image{
+        width: 170px;
+        height: 120px;
+        margin-left: 25px;
+        margin-right: 10px;
+    }
+    .match-info, .odds-container{
+        width: 400px;
+        margin: 0 5px;
+    }
+    .button-container{
+        font-size: 13px;
+    }
+    .ticket-container{
+        width: 420px;
+        margin: 5px;
+    }
+    .left-section a, .left-section span, .right-section a, .right-section span, .main-nav a, .main-nav span, .icon-link, .icon-separator, .user-info span, .user-info a, .main-nav-inner a{
+        margin-right: 2px;
+        font-size: 7px;
+    }
     .main-nav a{
-        font-size: 14px;
+        font-size: 8px;
     }
-    .lightbox-modal-image{
-        width: 100%;
+    .main-nav{
+        margin-left: 3px;
     }
-    .lightbox-arrow{
-        font-size: 24px;
+    .logo, .logo a{
+        font-size: 9px;
+        margin: 0;
+    }
+    .logo{
+        margin-right: 5px;
+    }
+    .fa-user-circle{
+        margin-left: 10px;
+    }
+    .icon-link i{
+        margin-left: 5px;
+    }
+    .dropdown-item .dropdown-menu{
+        left: 40%;
+    }
+    i.fas.fa-user-circle{
+        font-size: 20px;
+    }
+    i.fas.fa-exclamation-circle.warning-icon{
+        font-size: 10px;
+    }
+    a.icon-link{
+        font-size: 10px;
+    }
+    span.icon-separator{
+        font-size: 15px;
+        margin-left: 2px;
+    }
+    .login-button{
+        margin-right: 8px;
+    }
+    .left-section a{
+        margin-right: 3px;
+    }
+    .main-nav-inner a{
+        margin-right: 5px;
+        font-size: 8px;
     }
 }
