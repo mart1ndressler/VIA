@@ -29,14 +29,13 @@ function setupDatabasePage()
       weightClassesContainer.appendChild(weightButton);
     });
   
-    fetch('UFC_fighters.json')
-      .then(response => response.json())
-      .then(data => 
-      {
+    fetch('https://api-mma-default-rtdb.firebaseio.com/.json')
+    .then(response => response.json())
+    .then(data => {
         window.allFighters = data;
         displayFighters(data);
-      })
-      .catch(error => console.error('Error loading JSON:', error));
+    })
+    .catch(error => console.error('Error loading data from Firebase:', error));
   
     document.querySelector('.filter-reset').onclick = () => {
       displayFighters(window.allFighters);
@@ -107,14 +106,13 @@ document.addEventListener('DOMContentLoaded', () =>
   
     function updateChart(dataType, weightCategory) 
     {
-      fetch('UFC_fighters.json')
-        .then(response => response.json())
-        .then(data => 
-        {
+      fetch('https://api-mma-default-rtdb.firebaseio.com/.json')
+      .then(response => response.json())
+      .then(data => {
           if(weightCategory !== "all") 
           {
-            const { minWeight, maxWeight } = weightClasses[weightCategory];
-            data = data.filter(fighter => fighter.weight_in_kg >= minWeight && fighter.weight_in_kg <= maxWeight);
+              const { minWeight, maxWeight } = weightClasses[weightCategory];
+              data = data.filter(fighter => fighter.weight_in_kg >= minWeight && fighter.weight_in_kg <= maxWeight);
           }
           data.sort((a, b) => (b[dataType] || 0) - (a[dataType] || 0));
 
@@ -145,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () =>
             }
           });
         })
-        .catch(error => console.error('Error loading JSON:', error));
+        .catch(error => console.error('Error loading data from Firebase:', error));
     }
   
     updateChart('wins', 'all');
